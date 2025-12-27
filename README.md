@@ -35,9 +35,6 @@ Obs: Foram aplicadas as regras oficiais do jogo.
 - Exceções personalizadas
 
 # Como executar o projeto
-
-## Como executar o projeto
-
 ### Pré-requisitos
 - Java JDK 8 ou superior
 
