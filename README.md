@@ -14,19 +14,11 @@ A aplicação consiste em um programa de jogo de xadrez no estilo Comand-Line In
 # Tecnologias utilizadas
 ## Back end
 - Java
-- Spring Boot
-- JPA / Hibernate
-- Maven
-
-## Implantação em produção
-- Back end: Heroku
-- Front end web: Netlify
-- Banco de dados: Postgresql
 
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Java 11
+Pré-requisitos: Java 25
 
 ```bash
 # clonar repositório
