@@ -47,6 +47,7 @@ git clone https://github.com/WellingtonMBraganca/Chess-Java.git
 cd Chess-Java
 javac application/Program.java
 java application.Program
+```
 
 # Autor
 
