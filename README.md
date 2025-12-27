@@ -1,16 +1,24 @@
 # Chess-Java
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/WellingtonMBraganca/Chess-Java/blob/main/LICENSE)
+![License](https://img.shields.io/github/license/WellingtonMBraganca/Chess-Java)
 
 # Sobre o projeto
-Projeto mais abrangente focado em Programação Orientada Objeto, que visa o desenvolvimento e avaliação pessoal dos avanços de estudos focados na linguagem Java até então.
+Projeto mais abrangente focado em Programação Orientada Objetos, que visa o desenvolvimento e avaliação pessoal dos avanços de estudos focados na linguagem Java até então.
 
-A aplicação consiste em um programa de jogo de xadrez no estilo Comand-Line Interface (CLI), com foco no desenvolvimento, e não em uma interface interface gráfica.
+A aplicação consiste em um programa de jogo de xadrez no estilo Command-Line Interface (CLI), com foco no desenvolvimento, e não em uma interface gráfica.
 Obs: Foram aplicadas as regras oficiais do jogo.
 
 # Objetivo do Projeto
 - Projeto acadêmico para praticar POO
 - Aplicação das regras do xadrez
 - Exercício de modelagem orientada a objetos
+
+## Funcionalidades
+- Execução de partidas de xadrez via terminal
+- Validação de movimentos
+- Detecção de xeque e xeque-mate
+- Movimentos especiais (roque, en passant, promoção)
+- Controle de turnos
+
 
 ## Layout Final
 ![Chess final](https://github.com/WellingtonMBraganca/Chess-Java/blob/main/assets/chess-final.png)
@@ -19,7 +27,6 @@ Obs: Foram aplicadas as regras oficiais do jogo.
 ![Modelo Conceitual](https://github.com/WellingtonMBraganca/Chess-Java/blob/main/assets/chess-system-design.png)
 
 # Tecnologias utilizadas
-## Back end
 - Java (JDK 8+)
 - Programação Orientada a Objetos
 - UML (Diagrama de Classes)
@@ -29,19 +36,17 @@ Obs: Foram aplicadas as regras oficiais do jogo.
 
 # Como executar o projeto
 
-1. Clone o repositório
-   git clone https://github.com/WellingtonMBraganca/Chess-Java.git
+## Como executar o projeto
 
-2. Compile o projeto
-   javac application/Program.java
+### Pré-requisitos
+- Java JDK 8 ou superior
 
-3. Execute
-   java application.Program
-
-
+### Passos
 ```bash
-# clonar repositório
 git clone https://github.com/WellingtonMBraganca/Chess-Java.git
+cd Chess-Java
+javac application/Program.java
+java application.Program
 
 # Autor
 
