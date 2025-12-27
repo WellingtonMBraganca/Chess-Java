@@ -9,7 +9,7 @@ A aplicação consiste em um programa de jogo de xadrez no estilo Comand-Line In
 ![Chess final](https://github.com/WellingtonMBraganca/Chess-Java/blob/main/assets/chess-final.png)
 
 ## Modelo conceitual
-![Modelo Conceitual]
+![Modelo Conceitual](https://github.com/WellingtonMBraganca/Chess-Java/blob/main/assets/chess-system-design.png)
 
 # Tecnologias utilizadas
 ## Back end
