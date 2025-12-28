@@ -1,6 +1,9 @@
-import boardGame.Board;
+import chess.ChessMatch;
 
 public class Program {
     static void main() {
-Board board = new Board(8, 7);    }
+
+        ChessMatch chessMatch = new ChessMatch();
+        UserInterface.printBoard(chessMatch.getPieces());
+    }
 }
