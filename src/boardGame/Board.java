@@ -6,6 +6,9 @@ public class Board {
     private Piece[][] pieces;
 
     public Board(Integer rows, Integer columns) {
+        if (rows < 1 || columns < 1) {
+            throw new BoardException("Error creating board: There must be at least one row and one column.");
+        }
         this.rows = rows;
         Columns = columns;
         pieces = new Piece[rows][columns];
@@ -15,28 +18,45 @@ public class Board {
         return rows;
     }
 
-    public void setRows(Integer rows) {
-        this.rows = rows;
-    }
-
     public Integer getColumns() {
         return Columns;
     }
 
-    public void setColumns(Integer columns) {
-        Columns = columns;
-    }
-
-    public Piece piece (int row, int column){
+    public Piece piece(int row, int column) {
+        if (!positionExist(row, column)) {
+            throw new BoardException("The selected position do not exist on the board.");
+        }
         return pieces[row][column];
     }
 
-    public Piece piece (Position pos){
-        return pieces[pos.getRow()][pos.getColumn()];
+    public Piece piece(Position position) {
+        if (!positionExist(position)) {
+            throw new BoardException("The selected position do not exist on the board.");
+        }
+        return pieces[position.getRow()][position.getColumn()];
     }
 
     public void placePiece(Piece piece, Position position) {
+        if (thereIsAPiece(position)) {
+            throw new BoardException("There is already a piece on this position." + position);
+        }
         pieces[position.getRow()][position.getColumn()] = piece;
         piece.position = position;
+    }
+
+    private boolean positionExist(int row, int column) {
+        return row >= 0 && row < rows && column >= 0 && column < Columns;
+    }
+
+    public boolean positionExist(Position position) {
+
+        return positionExist(position.getRow(), position.getColumn());
+    }
+
+    public boolean thereIsAPiece(Position position) {
+        if (!positionExist(position)) {
+            throw new BoardException("The selected position do not exist on the board.");
+        }
+        return piece(position) != null;
     }
 }
