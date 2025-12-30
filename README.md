@@ -50,7 +50,7 @@ java application.Program
 
 Wellington Mariano Bragança
 
-www.linkedin.com/in/wellington-bragança-957b21375
+www.linkedin.com/in/wellington-bragança
 
 
 ## Licença
