@@ -49,7 +49,6 @@ public class Board {
     }
 
     public boolean positionExist(Position position) {
-
         return positionExist(position.getRow(), position.getColumn());
     }
 
@@ -58,5 +57,18 @@ public class Board {
             throw new BoardException("The selected position do not exist on the board.");
         }
         return piece(position) != null;
+    }
+
+    public Piece removePiece(Position position){
+        if (!positionExist(position)){
+            throw new BoardException("Position not on the board.");
+        }
+        if(piece(position) == null){
+            return null;
+        }
+        Piece aux = piece(position);
+        aux.position = null;
+        pieces[position.getRow()][position.getColumn()] = null;
+        return aux;
     }
 }
