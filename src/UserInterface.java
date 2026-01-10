@@ -10,7 +10,6 @@ import java.util.stream.IntStream;
 public class UserInterface {
 
     // https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
-
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -38,14 +37,45 @@ public class UserInterface {
     }
 
     public static void printBoard(ChessPiece[][] pieces) {
-        IntStream.range(0, pieces.length).forEach(i -> {
-            System.out.print((8 - i) + " ");
+        IntStream.range(0, pieces.length).forEach(tile -> {
+            System.out.print((8 - tile) + " ");
 
-            Arrays.stream(pieces[i]).forEach(piece -> printPiece(piece));
+            Arrays.stream(pieces[tile]).forEach(piece -> printPiece(piece));
 
             System.out.println();
         });
         System.out.println("  A B C D E F G H");
+    }
+
+    public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
+        IntStream.range(0, pieces.length).forEach(i -> {
+
+            System.out.print((8 - i) + " ");
+
+            IntStream.range(0, pieces[i].length).forEach(j -> {
+
+                printPiece(pieces[i][j], possibleMoves[i][j]);
+            });
+
+            System.out.println();
+        });
+        System.out.println("  A B C D E F G H");
+    }
+
+    private static void printPiece(ChessPiece piece, boolean tileBackground) {
+        if (tileBackground){
+            System.out.print(ANSI_CYAN_BACKGROUND);
+        }
+        if (piece == null) {
+            System.out.print("-");
+        } else {
+            if (piece.getColor() == Color.WHITE) {
+                System.out.print(ANSI_WHITE + piece + ANSI_RESET);
+            } else {
+                System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
+            }
+        }
+        System.out.print(" ");
     }
 
     private static void printPiece(ChessPiece piece) {
