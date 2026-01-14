@@ -39,16 +39,20 @@ public class UserInterface {
         System.out.flush();
     }
 
-    public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured){
+    public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured) {
         printBoard(chessMatch.getPieces());
         System.out.println();
         printCapturedPieces(captured);
         System.out.println("Turn: " + chessMatch.getTurn());
-        System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
-        if(chessMatch.getCheck()){
-            System.out.println("CHECK!");
+        if (!chessMatch.getCheckMate()) {
+            System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+            if (chessMatch.getCheck()) {
+                System.out.println("CHECK!");
+            }
+        } else {
+            System.out.println("CHECKMATE!");
+            System.out.println("Winner: " + chessMatch.getCurrentPlayer());
         }
-
     }
 
     public static void printBoard(ChessPiece[][] pieces) {
@@ -78,7 +82,7 @@ public class UserInterface {
     }
 
     private static void printPiece(ChessPiece piece, boolean tileBackground) {
-        if (tileBackground){
+        if (tileBackground) {
             System.out.print(ANSI_CYAN_BACKGROUND);
         }
         if (piece == null) {
@@ -117,15 +121,13 @@ public class UserInterface {
         }
     }
 
-    private static void printCapturedPieces(List<ChessPiece> capturedPieces){
+    private static void printCapturedPieces(List<ChessPiece> capturedPieces) {
         List<ChessPiece> white = capturedPieces
                 .stream()
-                .filter(x -> x.getColor() == Color.WHITE)
-                .collect(Collectors.toList());
+                .filter(x -> x.getColor() == Color.WHITE).toList();
         List<ChessPiece> black = capturedPieces
                 .stream()
-                .filter(x -> x.getColor() == Color.BLACK)
-                .collect(Collectors.toList());
+                .filter(x -> x.getColor() == Color.BLACK).toList();
 
         System.out.println("Captured pieces: ");
         System.out.print("White: ");
