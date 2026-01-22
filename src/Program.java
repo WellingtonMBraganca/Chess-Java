@@ -3,10 +3,7 @@ import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Program {
     static void main() {
@@ -36,6 +33,13 @@ public class Program {
 
                if (capturedPiece != null){
                    captured.add(capturedPiece);
+               }
+
+               if (chessMatch.getPromoted() != null){
+                   System.out.println("Select the promoted piece: (B/N/R/Q)");
+                   String type = sc.nextLine();
+
+                   chessMatch.replacePromotedPiece(type.toUpperCase());
                }
            }
            catch (ChessException e ){
